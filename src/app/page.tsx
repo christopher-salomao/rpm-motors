@@ -1,8 +1,10 @@
 import { getDataHome } from "@/utils/actions/get-data";
 
 import { Submenu } from "@/components/home/submenu";
-import { Hero } from "@/components/hero";
 import { Phone } from "lucide-react";
+import { Hero } from "@/components/hero";
+import { Container } from "@/components/container";
+import { Services } from "@/components/home/services";
 
 import type { HomeProps } from "@/interfaces/home.type";
 
@@ -19,6 +21,9 @@ export default async function Home() {
         bannerURL={object.metadata.banner.url}
         icon={<Phone size={24} color="#ffffff" />}
       />
+      <Container>
+        <Services  object={object} />
+      </Container>
     </main>
   );
 }
