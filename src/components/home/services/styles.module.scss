@@ -40,3 +40,32 @@
     }
   }
 }
+
+@media screen and (min-width: 640px) {
+  .containerAbout {
+    flex-direction: row;
+    gap: 34px;
+
+    .innerAbout {
+      .title {
+        align-self: flex-start;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .containerAbout {
+    .innerAbout {
+      p {
+        max-width: 80%;
+        align-self: flex-start;
+      }
+    }
+
+    .bannerAbout {
+      width: 600px;
+      height: 450px;
+    }
+  }
+}
