@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
         hostname: "cdn.cosmicjs.com",
       },
     ],
+    qualities: [100]
   },
 };
 

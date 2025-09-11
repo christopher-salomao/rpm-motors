@@ -1,3 +1,5 @@
+//about area
+
 .containerAbout {
   width: 100%;
   display: flex;
@@ -37,6 +39,57 @@
       width: 100%;
       height: 100%;
       border-radius: 8px;
+    }
+  }
+}
+
+// services area
+
+.titleServices {
+  text-transform: uppercase;
+  color: #121212;
+  margin: 40px 0 24px 0;
+  text-align: center;
+  font-size: 24px;
+}
+
+.services {
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+
+  .service {
+    p {
+      text-align: center;
+      margin-block: 8px;
+      font-size: 18px;
+      transition: all 0.4s;
+    }
+
+    .innerService {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 8px;
+
+      &:hover {
+        .imageService {
+          transform: scale(1.1);
+        }
+
+        + p {
+          font-weight: bold;
+        }
+      }
+
+      .imageService {
+        object-fit: cover;
+        border-radius: 8px;
+        width: 280px;
+        height: 350px;
+        transition: all 0.4s;
+      }
     }
   }
 }
