@@ -42,9 +42,18 @@ export function Contacts({ object }: HomeProps) {
               <p>{object.metadata.contacts.time}</p>
             </div>
           </div>
-
         </div>
       </div>
+
+      <a
+        href={object.metadata.cta_button.url}
+        target="_blank"
+        rel="noreferrer noopener"
+        className={styles.link}
+      >
+        <Phone size={24} color="#ffffff" />
+        {object.metadata.cta_button.title}
+      </a>
     </section>
-  )
+  );
 }

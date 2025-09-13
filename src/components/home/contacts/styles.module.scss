@@ -34,4 +34,40 @@
       }
     }
   }
+
+   .link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 34px;
+      padding: 8px 24px;
+      border-radius: 8px;
+      background-color: #30b700;
+      color: #ffffff;
+      font-weight: 500;
+      transition: all 0.5s;
+
+      &:hover {
+        transform: scale(1.09);
+      }
+    }
+}
+
+@media screen and (min-width: 640px) {
+  .contactsContainer {
+    .contacts {
+      .content {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .contactsContainer {
+    .contacts {
+      width: 60%;
+    }
+  }
 }
