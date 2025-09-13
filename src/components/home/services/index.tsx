@@ -7,7 +7,7 @@ import styles from "./styles.module.scss";
 export function Services({ object }: HomeProps) {
   return (
     <>
-      <section className={styles.containerAbout}>
+      <section className={styles.containerAbout} id="servicos">
         <article className={styles.innerAbout}>
           <h2 className={styles.title}>Sobre</h2>
           <p>{object.metadata.about.description}</p>
