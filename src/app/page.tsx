@@ -5,6 +5,7 @@ import { Phone } from "lucide-react";
 import { Hero } from "@/components/hero";
 import { Container } from "@/components/container";
 import { Services } from "@/components/home/services";
+import { Contacts } from "@/components/home/contacts";
 
 import type { HomeProps } from "@/interfaces/home.type";
 
@@ -22,7 +23,8 @@ export default async function Home() {
         icon={<Phone size={24} color="#ffffff" />}
       />
       <Container>
-        <Services  object={object} />
+        <Services object={object} />
+        <Contacts object={object} />
       </Container>
     </main>
   );
