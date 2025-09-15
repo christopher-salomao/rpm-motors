@@ -8,7 +8,7 @@ import { Services } from "@/components/home/services";
 import { Contacts } from "@/components/home/contacts";
 
 import type { HomeProps } from "@/interfaces/home.type";
-import type { MenuProps } from "@/interfaces/menuType";
+import type { MenuProps } from "@/interfaces/menu.type";
 
 export default async function Home() {
   const { object }: HomeProps = await getDataHome();

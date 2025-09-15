@@ -31,3 +31,30 @@ export async function getSubmenu() {
     throw new Error("Failed to fetch menu data");
   }
 }
+
+export async function getDataBySlug(slug: string) {
+  const baseUrl = `${process.env.NEXT_PUBLIC_API_URL}/objects`;
+
+  const queryParams = new URLSearchParams({
+    query: JSON.stringify({
+      slug: slug,
+    }),
+    props: "slug,title,metadata",
+    read_key: process.env.COSMIC_READ_KEY as string,
+  });
+
+  const url = `${baseUrl}?${queryParams.toString()}`;
+
+  try {
+    const res = await fetch(url, { next: { revalidate: 86400 } });
+
+    if (!res.ok) {
+      throw new Error("Failed to get data by slug");
+    }
+
+    return res.json();
+
+  } catch (error) {
+    throw new Error("Failed to get data by slug");
+  }
+}
