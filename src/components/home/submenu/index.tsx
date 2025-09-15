@@ -1,13 +1,16 @@
 "use client";
 
 import { useState, useEffect } from "react";
-
 import Link from "next/link";
 import { X, Menu } from "lucide-react";
-
+import type { MenuProps } from "@/interfaces/menuType";
 import styles from "./styles.module.scss";
 
-export function Submenu() {
+interface SubmenuProps {
+  menu: MenuProps;
+}
+
+export function Submenu({ menu }: SubmenuProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -40,16 +43,11 @@ export function Submenu() {
           </button>
         )}
 
-        <li>
-          <Link href="/post/pagina-1">Página 1</Link>
-        </li>
-
-        <li>
-          <Link href="/post/pagina-2">Página 2</Link>
-        </li>
-        <li>
-          <Link href="/post/pagina-3">Página 3</Link>
-        </li>
+        {menu.objects.map((item) => (
+          <li key={item.slug}>
+            <Link href={`/post/${item.slug}`}>{item.title}</Link>
+          </li>
+        ))}
       </ul>
     </section>
   );
