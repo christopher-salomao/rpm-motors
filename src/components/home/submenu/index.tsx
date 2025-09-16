@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { X, Menu } from "lucide-react";
-import type { MenuProps } from "@/interfaces/menuType";
+import type { MenuProps } from "@/interfaces/menu.type";
 import styles from "./styles.module.scss";
 
 interface SubmenuProps {
