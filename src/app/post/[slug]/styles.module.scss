@@ -1,0 +1,60 @@
+.main {
+  padding-top: 100px;
+}
+
+.about {
+  display: flex;
+  margin: 44px 14px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 44px;
+
+  .innerAbout {
+    flex: 1;
+
+    .title {
+      font-size: 30px;
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    p {
+      margin-bottom: 24px;
+      text-align: justify;
+      line-height: 150%;
+    }
+
+    .link {
+      background-color: #121212;
+      color: #ffffff;
+      border-radius: 4px;
+      padding: 8px 34px;
+    }
+  }
+
+  .bannerAbout {
+    position: relative;
+    width: 300px;
+    max-width: 400px;
+    height: 350px;
+
+    .imageAbout {
+      object-fit: cover;
+      border-radius: 8px;
+      width: 300px;
+      height: 350px;
+    }
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .about {
+    flex-direction: row;
+    gap: 54px;
+
+    .bannerAbout {
+      flex: 1;
+    }
+  }
+}
