@@ -1,3 +1,10 @@
+import { redirect } from "next/navigation";
+
+async function fakeDelay(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+
+}
+
 export async function getDataHome() {
   try {
     const res = await fetch(
@@ -55,6 +62,7 @@ export async function getDataBySlug(slug: string) {
     return res.json();
 
   } catch (error) {
-    throw new Error("Failed to get data by slug");
+    console.error(error);
+    redirect("/")
   }
 }
