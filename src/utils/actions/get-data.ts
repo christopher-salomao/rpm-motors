@@ -1,5 +1,10 @@
 import { redirect } from "next/navigation";
 
+async function fakeDelay(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+
+}
+
 export async function getDataHome() {
   try {
     const res = await fetch(

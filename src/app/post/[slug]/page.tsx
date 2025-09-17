@@ -1,59 +1,69 @@
+import { Suspense } from "react";
+import { Metadata } from "next";
 import { getDataBySlug } from "@/utils/actions/get-data";
 import { PostsProps } from "@/interfaces/posts.type";
 
-import { Hero } from "@/components/hero";
-import { Container } from "@/components/container";
-import { Phone } from "lucide-react";
-import Image from "next/image";
-
-import styles from "./styles.module.scss";
+import { Content } from "./components/content";
+import { LoadingPost } from "./components/loading";
 
 interface ParamsProps {
   params: Promise<{ slug: string }>;
 }
 
+export async function generateMetadata({
+  params,
+}: ParamsProps): Promise<Metadata> {
+  const { objects }: PostsProps = await getDataBySlug(
+    (
+      await params
+    ).slug
+  ).catch(() => {
+    return {
+      title: "RPM Motors - Sua oficina de confiança",
+      description: "A melhor oficina de carros de Belo Horizonte e região.",
+    };
+  });
+
+  try {
+    return {
+      title: `RPM Motors - ${objects[0].title}`,
+      description: objects[0].metadata.description.text,
+      robots: {
+        index: true,
+        follow: true,
+        nocache: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          noimageindex: true,
+        },
+      },
+      openGraph: {
+        title: `RPM Motors - ${objects[0].title}`,
+        description: objects[0].metadata.description.text,
+        siteName: "RPM Motors",
+        locale: "pt-BR",
+        type: "website",
+        images: [objects[0].metadata.description.banner.url],
+        url: process.env.NEXT_PUBLIC_URL,
+      },
+      icons: {
+        icon: `${process.env.NEXT_PUBLIC_URL}/favicon.ico`,
+      },
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      title: "RPM Motors - Sua oficina de confiança",
+      description: "A melhor oficina de carros de Belo Horizonte e região.",
+    };
+  }
+}
+
 export default async function Post({ params }: ParamsProps) {
-  const { objects }: PostsProps = await getDataBySlug((await params).slug);
-
   return (
-    <main className={styles.main}>
-      <Hero
-        heading={objects[0].title}
-        buttonURL={objects[0].metadata.button.url}
-        buttonTitle={objects[0].metadata.button.title}
-        bannerURL={objects[0].metadata.banner.url}
-        icon={<Phone size={24} color="#ffffff" />}
-      />
-      <Container>
-        <section className={styles.about}>
-          <article className={styles.innerAbout}>
-            <h1 className={styles.title}>{objects[0].title}</h1>
-            <p>{objects[0].metadata.description.text}</p>
-
-            {objects[0].metadata.description.button_active && (
-              <a
-                href={objects[0].metadata.description.button_url as string}
-                target="_blank"
-                rel="noreferrer noopener"
-                className={styles.link}
-              >
-                {objects[0].metadata.description.button_title}
-              </a>
-            )}
-          </article>
-          <div className={styles.bannerAbout}>
-            <Image
-              priority
-              className={styles.imageAbout}
-              alt={objects[0].title}
-              src={objects[0].metadata.description.banner.url}
-              quality={100}
-              fill
-              sizes="(max-width: 700px) 100vw, (max-width: 1024px) 75vw, 50vw"
-            />
-          </div>
-        </section>
-      </Container>
-    </main>
+    <Suspense fallback={<LoadingPost />}>
+      <Content slug={(await params).slug} />
+    </Suspense>
   );
 }
