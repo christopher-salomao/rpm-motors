@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RPM Motors 🚗
 
-## Getting Started
+Uma landing page moderna para oficina mecânica, desenvolvida como parte do curso Fullstack Pro do Sujeito Programador. Este projeto demonstra a integração de um CMS para gerenciamento de conteúdo dinâmico.
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)
+![SASS](https://img.shields.io/badge/SASS-1.60-CC6699?style=for-the-badge&logo=sass)
+![Cosmic.js](https://img.shields.io/badge/Cosmic.JS-CMS-5C6BDB?style=for-the-badge)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Funcionalidades
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Landing Page Responsiva:** Design adaptado para todos os dispositivos
+- **CMS Integrado:** Gerenciamento de conteúdo através do Cosmic JS
+- **Conteúdo Dinâmico:** Atualizações de conteúdo sem necessidade de deplo
+- **Ícones Modernos:** Utilizando Lucide React
+- **Tipagem Estrita:** Desenvolvido com TypeScript para maior confiabilidade
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Tecnologias Utilizadas
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Next.js 15:** Framework React com App Router
+- **TypeScript:** Superset JavaScript com tipagem estática
+- **SASS:** Pré-processador CSS para estilização avançada
+- **Lucide Rea**ct: Biblioteca de ícones modernos
+- **Cosmic JS:** CMS headless para gerenciamento de conteúdo
 
-## Learn More
+## 🚀 Como Executar o Projeto
 
-To learn more about Next.js, take a look at the following resources:
+### Pré-requisitos
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Node.js (versão 18 ou superior)
+- Conta no [Cosmic.js](https://www.cosmicjs.com/)
+- Chaves de API do Cosmic JS
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Instalação
 
-## Deploy on Vercel
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/christopher-salomao/rpm-motors.git
+   cd rpm-motors
+   ```
+2. Instale as dependências:
+   ```bash
+   npm install
+   # ou
+   yarn install
+   ```
+3. Configure as variáveis de ambiente:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   - Crie um arquivo `.env.local` na raiz do projeto.
+   - Adicione suas chaves de API do Cosmic JS:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+     ```env
+     NEXT_PUBLIC_API_URL=sua_url_da_api
+     NEXT_PUBLIC_URL=http://localhost:3000
+
+     COSMIC_READ_KEY=sua_chave_de_leitura_do_cosmic
+     COSMIC_WRITE_KEY=sua_chave_de_escrita_do_cosmic
+     ```
+
+4. Execute o projeto em desenvolvimento:
+   ```bash
+   npm run dev
+   # ou
+   yarn dev
+   ```
+5. Abra http://localhost:3000 no seu navegador.
+
+## 📦 Scripts Disponíveis
+
+- `dev`: Inicia o servidor de desenvolvimento
+- `build`: Compila o projeto para produção
+- `start`: Inicia o servidor em modo produção
+
+## 📱 Responsividade
+
+O design da landing page é totalmente responsivo, garantindo uma ótima experiência para:
+
+- Desktop
+- Tablets
+- Dispositivos móveis (smartphones)
+
+## 🔌 Integração com Cosmic JS
+
+O projeto demonstra a integração com Cosmic JS como CMS headless:
+
+- Gerenciamento de conteúdo dinâmico
+- Atualizações de conteúdo sem necessidade de deploy
+- Interface amigável para administradores
+
+## 📄 Licença
+
+Este projeto foi desenvolvido para fins educativos e não possui fins comerciais.
